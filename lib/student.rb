@@ -103,16 +103,7 @@ class Student
   end
   
   def self.first_student_in_grade_10
-    grade_10 = []
-    sql = <<~SQL
-      SELECT * 
-      FROM students 
-      WHERE grade = ?
-    SQL
-    
-    DB[:conn].execute(sql, 10).map do |name|
-      grade_10 << name
-    end.first
+    self.first_X_students_in_grade_10(1)
   end
   
   def self.all_students_in_grade_X(target_grade)
