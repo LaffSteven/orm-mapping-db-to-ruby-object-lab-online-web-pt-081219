@@ -84,7 +84,7 @@ class Student
     student_list = []
     sql = <<~SQL
       SELECT * FROM students
-      ECLUDE
+      EXCLUDE
       SELECT * FROM students WHERE grade = 12
     SQL
     
