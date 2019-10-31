@@ -94,7 +94,11 @@ class Student
   def self.first_X_students_in_grade_10(number)
     student_list = []
     x = number.to_i
-    DB[:conn].execute("SELECT name FROM students WHERE grade = 10 LIMIT #{x}").map do |name|
+    sql = <<~ SQL
+      SELECT * FROM students WHERE grade = 10 LIMIT ?
+    SQL
+    
+    DB[:conn].execute(sql, x).map do |name|
       self.new_from_db
     end
   end
