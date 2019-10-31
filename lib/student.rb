@@ -81,7 +81,7 @@ class Student
   end
   
   def self.students_below_12th_grade
-    student_list
+    student_list = []
     sql = <<~SQL
       SELECT * 
       FROM students 
