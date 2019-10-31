@@ -85,10 +85,10 @@ class Student
     sql = <<~SQL
       SELECT * 
       FROM students 
-      WHERE grade NOT LIKE '12'
+      WHERE grade = ?
     SQL
     
-    DB[:conn].execute(sql).map do |name|
+    DB[:conn].execute(sql, 9).map do |name|
       student_list << name
     end
   end
