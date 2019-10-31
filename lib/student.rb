@@ -88,8 +88,8 @@ class Student
       WHERE grade = ?
     SQL
     
-    DB[:conn].execute(sql, 9).map do |name|
-      student_list << name
+    DB[:conn].execute(sql, 9).map do |row|
+      student_list << row
     end
   end
   
