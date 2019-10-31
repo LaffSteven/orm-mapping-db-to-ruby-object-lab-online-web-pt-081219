@@ -83,12 +83,12 @@ class Student
   def self.students_below_12th_grade
     student_list = []
     sql = <<~SQL
-      SELECT * 
-      FROM students 
-      WHERE grade = ?
+      SELECT * FROM students
+      ECLUDE
+      SELECT * FROM students WHERE grade = 12
     SQL
     
-    DB[:conn].execute(sql, 9).map do |row|
+    DB[:conn].execute(sql).map do |row|
       student_list << row
     end
   end
