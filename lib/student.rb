@@ -83,9 +83,7 @@ class Student
   def self.students_below_12th_grade
     student_list = []
     sql = <<~SQL
-      SELECT * FROM students
-      EXCLUDE
-      SELECT * FROM students WHERE grade = 12
+      SELECT * FROM students WHERE grade < 12
     SQL
     
     DB[:conn].execute(sql).map do |row|
