@@ -95,7 +95,7 @@ class Student
     student_list = []
     x = number.to_i
     DB[:conn].execute("SELECT name FROM students WHERE grade = 10 LIMIT #{x}").map do |name|
-      student_list << name
+      self.new_from_db
     end
   end
   
